@@ -50,12 +50,12 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
 
         [HttpGet]
         [Route("/One Category ")]
-        public ActionResult GetCCategory(string Cname)
+        public ActionResult GetCCategory(string CategoryId)
         {
             try
             {
                 _logger.LogInformation("Get One Category Details endpoint start");
-                var ca = CProductcategory.GetCCategory(Cname);
+                var ca = CProductcategory.GetCCategory(CategoryId);
                 if (ca != null)
                 {
                     return Ok(ca);

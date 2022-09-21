@@ -11,9 +11,9 @@ namespace ECommerceApp.DomainLayer.Model
     {
         [Key]
         public string CategoryId { get; set; }
-        [Key]
+        
         public string Cname { get; set; }
-        public string Description { get; set; }
+        public string CDescription { get; set; }
 
 
     }

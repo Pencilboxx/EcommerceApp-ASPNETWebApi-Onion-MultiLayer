@@ -12,6 +12,6 @@ namespace ECommerceApp.ServiceLayer
     public interface ICProductcategory
     {
         IList<Categories> GetCCategory();
-        Categories GetCCategory(string Cname);
+        Categories GetCCategory(string CategoryId);
     }
 }

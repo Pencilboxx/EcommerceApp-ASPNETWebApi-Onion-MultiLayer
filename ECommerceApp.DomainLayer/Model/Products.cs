@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace ECommerceApp.DomainLayer.Model
     {
         [Key]
         public string ProID { get; set; }
-         [Key]
-         public string CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public string CategoryId { get; set; }
         [Required]
         public string Mnum { get; set; }
         public string Mname { get; set; }

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ECommerceApp.RepositoryLayer;
 using Microsoft.EntityFrameworkCore;
+using ECommerceApp.ServiceLayer;
 
 namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer
 {
@@ -30,6 +31,10 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer
         {
 
             services.AddControllers();
+            services.AddScoped<ICProductcategory, CProductcategory>();
+            services.AddScoped<Iorderview, Orderviewservice>();
+            services.AddScoped<IProductdetails, Productdetails>();
+            services.AddScoped<IProductcategory, Productcategory>();
             services.AddDbContext<ApplicationContext>(x => x.UseSqlServer(Configuration.GetConnectionString("ConStr")));
             services.AddSwaggerGen(c =>
             {

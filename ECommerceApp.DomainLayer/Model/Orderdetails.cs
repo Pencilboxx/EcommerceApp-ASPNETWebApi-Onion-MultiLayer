@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace ECommerceApp.DomainLayer.Model
     {
         [Key]
         public string OId { get; set; }
-        [Key]
+        [ForeignKey("ProId")]
         public string ProId { get; set; }
 
         [Required]

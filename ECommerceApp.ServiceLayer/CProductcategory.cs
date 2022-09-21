@@ -21,9 +21,9 @@ namespace ECommerceApp.ServiceLayer
             return ApplicationContext.Set<Categories>().ToList();
         }
 
-        public Categories GetCCategory(string Cname)
+        public Categories GetCCategory(string CategoryId)
         {
-            return ApplicationContext.Find<Categories>(Cname);
+            return ApplicationContext.Find<Categories>(CategoryId);
         }
 
     }

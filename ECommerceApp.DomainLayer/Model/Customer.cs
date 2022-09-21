@@ -10,13 +10,15 @@ namespace ECommerceApp.DomainLayer.Model
     public class Customer
     {
         [Key]
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         [Required]
         public string FullName { get; set; }
-
+        [Required]
         public string EmailAddress { get; set; }
+        [Required]
         public string Password{ get; set; }
+        [Required]
         public string DeliveryAdd { get; set; }
 
 

@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ECommerceApp.RepositoryLayer;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceApp.ServiceLayer
 {
     public class Orderviewservice : Iorderview
     {
-        EcommerceDBContext db;
-        public Orderviewservice(EcommerceDBContext _db)
+        ApplicationContext db;
+        public Orderviewservice(ApplicationContext _db)
         {
             db = _db;
         }
@@ -21,16 +23,16 @@ namespace ECommerceApp.ServiceLayer
             {
                 return await (from o in db.Orders
                               from c in db.Customers
-                              where o.CustomerId == c.CustomerId
+                              where o.CustomerID == c.CustomerId
                               select new OrderView
                               {
                                   OrderId = o.OrderId,
-                                  OrderDate = o.OrderDate,
-                                  ShipDate = o.ShipDate,
-                                  CustomerId = o.CustomerId,
+                                  OrderDate = o.Odate,
+                                  ShipDate = o.Shipdate,
+                                  CustomerId = o.CustomerID,
                                   FullName = c.FullName,
-                                  Email = c.Email,
-                                  DeliveryAddress = c.DeliveryAddress
+                                  Email = c.EmailAddress,
+                                  DeliveryAddress = c.DeliveryAdd
                               }).ToListAsync();
             }
 
@@ -55,18 +57,18 @@ namespace ECommerceApp.ServiceLayer
                               select new OrderView
                               {
                                   OrderId = o.OrderId,
-                                  OrderDate = o.OrderDate,
-                                  ShipDate = o.ShipDate,
-                                  CustomerId = o.CustomerId,
+                                  OrderDate = o.Odate,
+                                  ShipDate = o.Shipdate,
+                                  CustomerId = o.CustomerID,
                                   FullName = c.FullName,
-                                  Email = c.Email,
-                                  DeliveryAddress = c.DeliveryAddress
+                                  Email = c.EmailAddress,
+                                  DeliveryAddress = c.DeliveryAdd
                               }).FirstOrDefaultAsync();
             }
 
             return null;
         }
-        public async Task<int> AddCustomer(Customer cust)
+        public async Task<string> AddCustomer(Customer cust)
         {
             if (db != null)
             {
@@ -76,7 +78,7 @@ namespace ECommerceApp.ServiceLayer
                 return cust.CustomerId;
             }
 
-            return 0;
+            return null;
         }
         public async Task<int> AddOrder(Orders order)
         {
@@ -125,6 +127,11 @@ namespace ECommerceApp.ServiceLayer
                 //Commit the transaction
                 await db.SaveChangesAsync();
             }
+        }
+
+        Task<int> Iorderview.AddCustomer(Customer cust)
+        {
+            throw new NotImplementedException();
         }
     }
 }
