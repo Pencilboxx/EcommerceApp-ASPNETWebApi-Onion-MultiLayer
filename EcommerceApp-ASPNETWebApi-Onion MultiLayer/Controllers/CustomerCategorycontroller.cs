@@ -25,7 +25,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
         }
         #endregion
         [HttpGet]
-        [Route("/ Category Details")]
+        [Route("/Category Details")]
         public ActionResult GetCCategory()
         {
             try
@@ -49,7 +49,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
         }
 
         [HttpGet]
-        [Route("/One Category ")]
+        [Route("/Any Specific Category Details ")]
         public ActionResult GetCCategory(string CategoryId)
         {
             try

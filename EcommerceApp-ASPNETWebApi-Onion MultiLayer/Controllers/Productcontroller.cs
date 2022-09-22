@@ -52,7 +52,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
         }
 
         [HttpGet]
-        [Route("/One Product Details")]
+        [Route("/One product details")]
         public ActionResult GetProducts(string ProID)
         {
             try

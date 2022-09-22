@@ -13,7 +13,9 @@ namespace ECommerceApp.ServiceLayer
           IList<Categories> GetCategory();
           Categories GetCategory(string CategoryId);
           void Insertcategory(Categories c);
-     }
+        void DeleteCategory(string CategoryID);
+        void UpdateCategory(Categories category);
+    }
   
 
 }

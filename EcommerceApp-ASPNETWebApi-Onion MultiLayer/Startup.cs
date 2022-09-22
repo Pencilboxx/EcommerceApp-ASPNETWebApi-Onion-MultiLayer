@@ -35,6 +35,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer
             services.AddScoped<Iorderview, Orderviewservice>();
             services.AddScoped<IProductdetails, Productdetails>();
             services.AddScoped<IProductcategory, Productcategory>();
+            services.AddScoped<Iorderview, Orderviewservice>();
             services.AddDbContext<ApplicationContext>(x => x.UseSqlServer(Configuration.GetConnectionString("ConStr")));
             services.AddSwaggerGen(c =>
             {

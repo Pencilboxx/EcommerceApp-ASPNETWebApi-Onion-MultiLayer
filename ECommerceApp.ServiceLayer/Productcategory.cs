@@ -31,5 +31,20 @@ namespace ECommerceApp.ServiceLayer
             ApplicationContext.Add<Categories>(c);
             ApplicationContext.SaveChanges();
         }
+        public void DeleteCategory(string CategoryID)
+        {
+            Categories c = GetCategory(CategoryID);
+            if (CategoryID != null)
+            {
+                ApplicationContext.Remove<Categories>(c);
+                ApplicationContext.SaveChanges();
+            }
+        }
+
+        public void UpdateCategory(Categories category)
+        {
+            ApplicationContext.Update<Categories>(category);
+            ApplicationContext.SaveChanges();
+        }
     }
 }

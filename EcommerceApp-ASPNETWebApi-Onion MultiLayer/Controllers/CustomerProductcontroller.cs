@@ -25,7 +25,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
         }
         #endregion
         [HttpGet]
-        [Route("/ Product Details")]
+        [Route("/Product Details")]
         public ActionResult GetProducts()
         {
             try
@@ -49,7 +49,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
         }
 
         [HttpGet]
-        [Route("/One Product ")]
+        [Route("/Any Specific Product Details ")]
         public ActionResult GetProducts(string ProID)
         {
             try

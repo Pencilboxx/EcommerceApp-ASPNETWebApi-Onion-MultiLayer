@@ -50,7 +50,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
 
 
         [HttpGet]
-        [Route("/One Category Details")]
+        [Route("/Any One Category Details")]
         public ActionResult GetCategory(string CategoryId)
         {
             try
@@ -73,7 +73,7 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
         }
 
         [HttpPost]
-        [Route("/Insert Category")]
+        [Route("/Insert A Category")]
 
         public ActionResult Insertcategory(Categories categories)
         {
@@ -94,6 +94,47 @@ namespace EcommerceApp_ASPNETWebApi_Onion_MultiLayer.Controllers
             return Ok("Category added");
         }
 
+        [HttpPut]
+        [Route("/Update Category Details")]
+
+        public ActionResult UpdateCategory(Categories category)
+        {
+            try
+            {
+                _logger.LogInformation("Update Category Details endpoint start");
+
+                Productcategory.UpdateCategory(category);
+
+                _logger.LogInformation("Update Category Details endpoint complete");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Exception occured;Exception detail:" + ex.InnerException);
+            }
+
+            return Ok("Updated");
+        }
+
+
+        [HttpDelete]
+        [Route("/Delete Category Details")]
+
+        public ActionResult DeleteCategory(string CategoryID)
+        {
+            try
+            {
+                _logger.LogInformation("Delete Category Details endpoint start");
+                Productcategory.DeleteCategory(CategoryID);
+                _logger.LogInformation("Delete Category Details endpoint complete");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Exception occured;Exception detail:" + ex.InnerException);
+            }
+
+
+            return Ok("Category Removed");
+        }
 
 
 
